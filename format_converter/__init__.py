@@ -16,10 +16,7 @@ def extension(filename):
 
 
 def is_string(variable):
-    if PY2:
-        return isinstance(variable, basestring)
-    else:
-        return isinstance(variable, str)
+    return isinstance(variable, str)
 
 
 class Reader(object):
@@ -50,10 +47,25 @@ class Reader(object):
 
 
 class Writer(object):
+
     def __init__(self, data, kind):
-        self.data = data
+        self.data = self.format_data(data)
         self.kind = kind
         self.defaultIndent = 2
+
+    def format_data(self, data):
+        keys = []
+        fmt_data = []
+        if isinstance(data, dict):
+            fmt_data = [data]
+        else:
+            for row in data:
+                keys = list(set(row.keys()).union(keys))
+                fmt_row = {}
+                for key in keys:
+                    fmt_row.update({key: row.get(key, '')})
+                fmt_data.append(fmt_row)
+        return fmt_data
 
     def write(self, ext, filename):
         ext = self.kind or ext

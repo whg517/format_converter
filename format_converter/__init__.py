@@ -1,4 +1,4 @@
-#coding:utf-8
+# coding:utf-8
 import os
 import sys
 import csv
@@ -9,9 +9,11 @@ import yaml
 
 PY2 = sys.version_info[0]
 
+
 def extension(filename):
     _, ext = os.path.splitext(filename)
     return ext
+
 
 def is_string(variable):
     if PY2:
@@ -94,8 +96,8 @@ class Writer(object):
         ext = extension(filename)
         self.write(ext, filename)
 
-class Converter(object):
 
+class Converter(object):
     reader = Reader()
 
     def __init__(self, kind=None):
@@ -135,5 +137,6 @@ class Converter(object):
     @property
     def csv(self):
         return converter('.csv')
+
 
 converter = Converter()

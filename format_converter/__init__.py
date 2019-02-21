@@ -59,12 +59,13 @@ class Writer(object):
         if isinstance(data, dict):
             fmt_data = [data]
         else:
-            for row in data:
-                keys = list(set(row.keys()).union(keys))
-                fmt_row = {}
-                for key in keys:
-                    fmt_row.update({key: row.get(key, '')})
-                fmt_data.append(fmt_row)
+            if data:
+                for row in data:
+                    keys = list(set(row.keys()).union(keys))
+                    fmt_row = {}
+                    for key in keys:
+                        fmt_row.update({key: row.get(key, '')})
+                    fmt_data.append(fmt_row)
         return fmt_data
 
     def write(self, ext, filename):

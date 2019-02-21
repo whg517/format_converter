@@ -9,7 +9,7 @@ def read(fname):
 
 setup(
     name="format_converter",
-    version="1.1",
+    version="0.0.1",
     author="ruifengyun",
     author_email="rfyiamcool@163.com",
     description="format converter",

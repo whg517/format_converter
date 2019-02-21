@@ -1,5 +1,8 @@
 # format_converter
 
+[![travis-ci](https://travis-ci.org/whg517/format_converter.svg?branch=master)](https://travis-ci.org/whg517/format_converter.svg?branch=master)
+
+
 该项目的用途相当的简单，是用来转换数据格式的. 比如把json转换成yaml,json转换成csv. 现在支持的格式有json、txt、csv、yaml.
 
 ## 安装:

@@ -62,6 +62,8 @@ class Writer(object):
             if data:
                 for row in data:
                     keys = list(set(row.keys()).union(keys))
+
+                for row in data:
                     fmt_row = {}
                     for key in keys:
                         fmt_row.update({key: row.get(key, '')})
